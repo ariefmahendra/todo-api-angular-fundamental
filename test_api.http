@@ -1,0 +1,17 @@
+### GET request with a header
+GET http://localhost:3000/auth
+Accept: application/json
+
+### Send POST request with json body
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "buah",
+  "password": "admin"
+}
+
+### GET request with a header
+GET http://localhost:3000/todos
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWVmbWFoZW5kcmFAZ21haWwuY29tIn0.ekU5xdaufcIt-yX0Wzl-Cp_L7SZbf-x3JJDoSYVKT8c
