@@ -8,6 +8,7 @@ import (
 
 func ResponseError(w http.ResponseWriter, statusCode int, status string, message string) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(statusCode)
 
 	response := dto.Response{
 		Code:    statusCode,

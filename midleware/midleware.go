@@ -18,7 +18,7 @@ func NewMiddleware(jwt service.JwtService) *Middleware {
 
 func (m *Middleware) AuthMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.String() != "/auth/login" && r.URL.String() != "/auth/register" {
+		if r.URL.String() != "/api/v1/auth/login" && r.URL.String() != "/api/v1/auth/register" {
 			authHeader := r.Header.Get("Authorization")
 			bearerToken := strings.Split(authHeader, " ")
 

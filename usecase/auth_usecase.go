@@ -16,7 +16,7 @@ var datas = []model.User{
 
 type AuthUsecase interface {
 	Login(payload model.User) (string, dto.LoginResponse, error)
-	Register(payload model.User) (dto.LoginResponse, error)
+	Register(payload model.User) (dto.RegisterResponse, error)
 }
 
 type AuthUsecaseImpl struct {
@@ -47,7 +47,7 @@ func (a *AuthUsecaseImpl) Login(payload model.User) (string, dto.LoginResponse, 
 	return token, dto.LoginResponse{Email: userModel.Email, AccessToken: token}, nil
 }
 
-func (a *AuthUsecaseImpl) Register(payload model.User) (dto.LoginResponse, error) {
+func (a *AuthUsecaseImpl) Register(payload model.User) (dto.RegisterResponse, error) {
 	datas = append(datas, payload)
-	return dto.LoginResponse{Email: payload.Email}, nil
+	return dto.RegisterResponse{Email: payload.Email}, nil
 }

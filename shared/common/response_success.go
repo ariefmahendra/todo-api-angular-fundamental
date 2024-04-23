@@ -8,6 +8,7 @@ import (
 
 func ResponseSuccess(w http.ResponseWriter, statusCode int, status string, message string, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(statusCode)
 
 	response := dto.Response{
 		Code:    statusCode,

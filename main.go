@@ -24,8 +24,8 @@ func main() {
 	todoController := controller.NewTodoController(r, todoUsecase)
 
 	r.Use(middleware.AuthMiddleware)
-	r.Mount("/todos", todoController.Routes())
-	r.Mount("/auth", authController.Routes())
+	r.Mount("/api/v1/todos", todoController.Routes())
+	r.Mount("/api/v1/auth", authController.Routes())
 
 	err := http.ListenAndServe(":3000", r)
 	if err != nil {
